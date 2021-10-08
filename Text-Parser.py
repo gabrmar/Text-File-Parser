@@ -1,7 +1,7 @@
 #Phase 1: Get strings from the txt file
 #import os <--- This is for debugging purposes 
 
-showtech = open('Archivos de Prueba/show_tech_detail.txt','r')
+showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
 snippet = showtech.read()
 
 #Phase 2: Filter the string
