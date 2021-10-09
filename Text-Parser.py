@@ -2,11 +2,52 @@
 #import os <--- This is for debugging purposes 
 
 showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
-snippet = showtech.read()
+snippet = showtech.read() # <--- If we specifiy an amount of chars as parameter, the buffer will move to the position ahead those chars,
+#that is to say that repeating the funciton .read() with the char parameter will provide teh next chars availale.
 
 #Phase 2: Filter the string
     #Find the borders of the substring
     #Extract the substring and provide it as filtered string
+
+#Interesting Commands:
+
+    #File_object.readlines() <---- show lines found on the opened file including escape caracthers 
+    #File_object.readline() <----- show fisrt line available. If this command is exceuted multiple times, it will always get the next line,
+    #that is it won't give you the same line twice.
+    #File_obejct.tell() <--- Show the ccurrent position of the file pointer/buffer
+    #File_object.seek(position) <--- Move the file pointer/buffer to the position set as parameter 
+
+#Interesting Deployements
+
+    # with open("file.txt", "r") as File_object <--- Using the context manager to invoke the line kind of as a function
+        #pass 
+
+    #for line in File_object:
+        #print(line, end="") <---- this is a way to read one line at a time and close it if the file object is hanled by a context manager
+
+    #Reading large files 
+
+        #size_to_read = 100
+
+        #contents = File_ibhect.read(size_to_read)
+        
+        #while len(contents) > 0:
+            #print(File_object, end="")
+            #content = File_object.read(size_to_read) <--- It will go for the next chars available 
+
+    #Copying files
+
+        #<snip> <---- Creation of file objext isntances 
+
+        #for line in Read_File_Object:
+            #Write_File_Object.write(line)
+
+#Interesting Notes
+
+    #The binary mode on the open() fucnition will allow you to work with non-text files such as images
+
+        
+
 #Phase 3: Present filtered string 
 
 print(snippet)
