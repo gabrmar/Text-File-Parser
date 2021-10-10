@@ -57,6 +57,14 @@ snippet = showtech.read(3430) #If we specifiy an amount of bytes as parameter, t
 #at thhe moment this is a test to define 
 print("The final file position is",showtech.tell()) #Testing the .tell() method
 
+#Proposal to get the substriing
+
+    #Once the borders are met using RegEx, a while loop can be implemented to collect all the lines until
+    #meeting position. The algorithm is presented below:
+
+        # while position < final line:
+            #snippet = leer_linea(position) <--- Verify if readline() command will work for this
+            #position = position + 1 <---- Confirm if this is possible
 
 #Phase 3: Present filtered string 
 
