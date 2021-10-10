@@ -50,11 +50,13 @@ parsed = open("Parsed Show Tech.txt","w")
 #Interesting Notes
 
     #The binary mode on the open() fucnition will allow you to work with non-text files such as images
-
-snippet = showtech.read(3542) # <--- If we specifiy an amount of bytes as parameter, the buffer will move to the position ahead those bytes,
+showtech.seek(120) #Changing the buffer position to 1000 bytes after the start of the text
+print("The initial file position is",showtech.tell()) #Testing the .tell() method
+snippet = showtech.read(3430) #If we specifiy an amount of bytes as parameter, the buffer will move to the position ahead those bytes,
 #that is to say that repeating the funciton .read() with the byte parameter will provide the next bytes availale.
 #at thhe moment this is a test to define 
-print("The file position is",showtech.tell()) # <--- Testing the .tell() method           
+print("The final file position is",showtech.tell()) #Testing the .tell() method
+
 
 #Phase 3: Present filtered string 
 
