@@ -1,10 +1,14 @@
 #Phase 1: Get strings from the txt file
 #import os <--- This is for debugging purposes 
+#import sys <--- This is for debugging purposes
 
 showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
 parsed = open("Parsed Show Tech.txt","w")
-snippet = showtech.read() # <--- If we specifiy an amount of bytes as parameter, the buffer will move to the position ahead those bytes,
-#that is to say that repeating the funciton .read() with the byte parameter will provide the next bytes availale.
+#Test
+#a = "a"
+#print("The size of the char is ",sys.getsizeof(a)) <--- This is to get the amount of bytes needed to store a 
+#variable/data type
+
 
 #Phase 2: Filter the string
     #Find the borders of the substring
@@ -47,7 +51,10 @@ snippet = showtech.read() # <--- If we specifiy an amount of bytes as parameter,
 
     #The binary mode on the open() fucnition will allow you to work with non-text files such as images
 
-        
+snippet = showtech.read(3542) # <--- If we specifiy an amount of bytes as parameter, the buffer will move to the position ahead those bytes,
+#that is to say that repeating the funciton .read() with the byte parameter will provide the next bytes availale.
+#at thhe moment this is a test to define 
+print("The file position is",showtech.tell()) # <--- Testing the .tell() method           
 
 #Phase 3: Present filtered string 
 
