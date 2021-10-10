@@ -2,6 +2,7 @@
 #import os <--- This is for debugging purposes 
 
 showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
+parsed = open("Parsed Show Tech.txt","w")
 snippet = showtech.read() # <--- If we specifiy an amount of chars as parameter, the buffer will move to the position ahead those chars,
 #that is to say that repeating the funciton .read() with the char parameter will provide teh next chars availale.
 
@@ -50,9 +51,11 @@ snippet = showtech.read() # <--- If we specifiy an amount of chars as parameter,
 
 #Phase 3: Present filtered string 
 
-print(snippet)
+#print(snippet)
 
 #Phase 4: Save the filtered data  into a .txt file
 
-showtech.close()
+parsed.write(snippet)
 
+showtech.close()
+parsed.close()
