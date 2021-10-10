@@ -21,6 +21,9 @@ parsed = open("Parsed Show Tech.txt","w")
     #that is it won't give you the same line twice.
     #File_obejct.tell() <--- Show the ccurrent position of the file pointer/buffer
     #File_object.seek(position) <--- Move the file pointer/buffer to the position set as parameter 
+    #snippet = showtech.read(3430) #If we specifiy an amount of bytes as parameter, the buffer will move to the position ahead those bytes,
+    #that is to say that repeating the funciton .read() with the byte parameter will provide the next bytes availale.
+    #at thhe moment this is a test to define 
 
 #Interesting Deployements
 
@@ -47,9 +50,6 @@ parsed = open("Parsed Show Tech.txt","w")
         #for line in Read_File_Object:
             #Write_File_Object.write(line)
 
-#Interesting Notes
-
-    #The binary mode on the open() fucnition will allow you to work with non-text files such as images
 showtech.seek(120) #Changing the buffer position to 1000 bytes after the start of the text
 print("The initial file position is",showtech.tell()) #Testing the .tell() method
 snippet = showtech.read(3430) #If we specifiy an amount of bytes as parameter, the buffer will move to the position ahead those bytes,
@@ -57,15 +57,28 @@ snippet = showtech.read(3430) #If we specifiy an amount of bytes as parameter, t
 #at thhe moment this is a test to define 
 print("The final file position is",showtech.tell()) #Testing the .tell() method
 
-#Proposal to get the substriing
+#Interesting Notes
+
+    #Proposal to get the substriing
 
     #Once the borders are met using RegEx, a while loop can be implemented to collect all the lines until
     #meeting position. The algorithm is presented below:
 
-        # while position < final line:
-            #snippet = leer_linea(position) <--- Verify if readline() command will work for this
-            #position = position + 1 <---- Confirm if this is possible
+        #Inputs: position of the initial and final border
+        
+        #showtech.seek(position)
+        #while position < final line:
+            
+            #snippet = showtech.readlines(1) <--- Verify if this will work
+            #showtech.seek(position) <---- Confirm if this is possible
 
+
+    #Iterable File Object Instances
+
+    #File Object instances are iterable, that is to say they can be used in for loops 
+     
+#The binary mode on the open() fucnition will allow you to work with non-text files such as images
+ 
 #Phase 3: Present filtered string 
 
 #print(snippet)
