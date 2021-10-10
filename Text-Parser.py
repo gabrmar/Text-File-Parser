@@ -3,8 +3,8 @@
 
 showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
 parsed = open("Parsed Show Tech.txt","w")
-snippet = showtech.read() # <--- If we specifiy an amount of chars as parameter, the buffer will move to the position ahead those chars,
-#that is to say that repeating the funciton .read() with the char parameter will provide teh next chars availale.
+snippet = showtech.read() # <--- If we specifiy an amount of bytes as parameter, the buffer will move to the position ahead those bytes,
+#that is to say that repeating the funciton .read() with the byte parameter will provide the next bytes availale.
 
 #Phase 2: Filter the string
     #Find the borders of the substring
@@ -34,7 +34,7 @@ snippet = showtech.read() # <--- If we specifiy an amount of chars as parameter,
         
         #while len(contents) > 0:
             #print(File_object, end="")
-            #content = File_object.read(size_to_read) <--- It will go for the next chars available 
+            #content = File_object.read(size_to_read) <--- It will go for the next bytes available 
 
     #Copying files
 
