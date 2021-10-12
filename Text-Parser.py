@@ -78,6 +78,12 @@ print("The final file position is",showtech.tell()) #Testing the .tell() method
     #File Object instances are iterable, that is to say they can be used in for loops 
      
 #The binary mode on the open() fucnition will allow you to work with non-text files such as images
+
+#About RegEx Module on Python
+
+    #Based on the YouTube tutorial I can get the indeces of the substring which matches the pattern, so
+    #I need to confirm if I can use those indices on the Object File instance  on my benefit to get the 
+    # show version.
  
 #Phase 3: Present filtered string 
 
