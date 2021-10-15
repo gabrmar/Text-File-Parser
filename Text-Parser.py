@@ -5,6 +5,8 @@ import re
 
 pattern1 =  "-* show version -*"
 pattern2 = "Configuration register is 0x.*"
+pattern3 = "-* show inventory _*"
+pattern4 = "-* show region -*"
 showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
 parsed = open("Parsed Show Tech.txt","w")
 
@@ -60,14 +62,19 @@ parsed = open("Parsed Show Tech.txt","w")
 text = showtech.read()
 match = re.search(pattern1, text)
 match2 = re.search(pattern2, text)
+match3 = re.search(pattern3, text)
+match4 = re.search(pattern4, text)
 start1 = match.start()
 start2 = match2.start()
+start3 = match3.start()
+start4 = match4.start()
 end1 = match.end()
 end2 = match2.end()
 
 print("borders identified at",start1,end1,start2,end2)
 
 snippet = text[start1:end2]
+snippet2 = text[start3:start4-1]
 
 """
 Not needed at this moment
@@ -114,6 +121,8 @@ print("The final file position is",showtech.tell()) #Testing the .tell() method
 #Phase 4: Save the filtered data  into a .txt file
 
 parsed.write(snippet)
+parsed.write("\n\n\n")
+parsed.write(snippet2)
 
 showtech.close()
 parsed.close()
