@@ -1,9 +1,14 @@
 #Phase 1: Get strings from the txt file
 #import os <--- This is for debugging purposes 
 #import sys <--- This is for debugging purposes
+import re
 
+pattern1 =  "-* show version -*"
+pattern2 = "Configuration register is 0x.*"
 showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
 parsed = open("Parsed Show Tech.txt","w")
+
+
 #Test
 #a = "a"
 #print("The size of the char is ",sys.getsizeof(a)) <--- This is to get the amount of bytes needed to store a 
@@ -50,13 +55,30 @@ parsed = open("Parsed Show Tech.txt","w")
         #for line in Read_File_Object:
             #Write_File_Object.write(line)
 
+##-------------------Getting Substring---------------------------------------
+
+text = showtech.read()
+match = re.search(pattern1, text)
+match2 = re.search(pattern2, text)
+start1 = match.start()
+start2 = match2.start()
+end1 = match.end()
+end2 = match2.end()
+
+print("borders identified at",start1,end1,start2,end2)
+
+snippet = text[start1:end2]
+
+"""
+Not needed at this moment
+
 showtech.seek(120) #Changing the buffer position to 1000 bytes after the start of the text
 print("The initial file position is",showtech.tell()) #Testing the .tell() method
 snippet = showtech.read(3430) #If we specifiy an amount of bytes as parameter, the buffer will move to the position ahead those bytes,
 #that is to say that repeating the funciton .read() with the byte parameter will provide the next bytes availale.
 #at thhe moment this is a test to define 
 print("The final file position is",showtech.tell()) #Testing the .tell() method
-
+"""
 #Interesting Notes
 
     #Proposal to get the substriing
