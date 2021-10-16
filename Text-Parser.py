@@ -28,9 +28,25 @@ def filter_text(file_object):
     return (substring,substring2)
 
 
-
+#Phase 1: Opening file 
 showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
 parsed = open("Parsed Show Tech.txt","w")
+
+#Phase 2: Getting substring using regex
+result = filter_text(showtech)
+snippet, snippet2 = result
+
+#Phase 3: Save the substring into text file
+parsed.write(snippet)
+parsed.write("\n\n\n")
+parsed.write(snippet2)
+
+#Phase 4: Close object files to clean system buffer 
+showtech.close()
+parsed.close()
+
+
+
 
 #Test
 #a = "a"
@@ -78,13 +94,6 @@ parsed = open("Parsed Show Tech.txt","w")
         #for line in Read_File_Object:
             #Write_File_Object.write(line)
 
-##-------------------Getting Substring---------------------------------------
-
-result = filter_text(showtech)
-
-snippet, snippet2 = result
-
-
 
 """
 Not needed at this moment
@@ -124,15 +133,3 @@ print("The final file position is",showtech.tell()) #Testing the .tell() method
     #I need to confirm if I can use those indices on the Object File instance  on my benefit to get the 
     # show version.
  
-#Phase 3: Present filtered string 
-
-#print(snippet)
-
-#Phase 4: Save the filtered data  into a .txt file
-
-parsed.write(snippet)
-parsed.write("\n\n\n")
-parsed.write(snippet2)
-
-showtech.close()
-parsed.close()
