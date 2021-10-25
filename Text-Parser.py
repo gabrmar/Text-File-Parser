@@ -30,6 +30,12 @@ def filter_text(file_object):
 
     return (substring,substring2,substring3)
 
+def writer(snippet_list,output_file):
+    i=0
+    while i < len(snippet_list):
+        output_file.write(snippet_list[i])
+        output_file.write("\n\n")
+        i=i+1
 
 #Phase 1: Opening file 
 showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
@@ -37,14 +43,10 @@ parsed = open("Parsed Show Tech.txt","w")
 
 #Phase 2: Getting substring using regex
 result = filter_text(showtech)
-snippet, snippet2, snippet3 = result
+listed = list(result)
 
 #Phase 3: Save the substring into text file
-parsed.write(snippet)
-parsed.write("\n\n\n")
-parsed.write(snippet2)
-parsed.write("\n\n\n")
-parsed.write(snippet3)
+writer(listed,parsed)
 
 #Phase 4: Close object files to clean system buffer 
 showtech.close()
