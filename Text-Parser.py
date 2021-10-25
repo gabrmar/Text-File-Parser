@@ -4,10 +4,11 @@ def filter_text(file_object):
 
     pattern1 =  "--* show version --*"
     pattern2 = "--* show running-config --*"
-    pattern3 = "-* show inventory --*"
-    pattern4 = "--* show region --*"
-    pattern5 = "--* show platform --*"
-    pattern6 = "--* show romvar --*"
+    pattern3 = "--* show platform --*"
+    pattern4 = "--* show romvar --*"
+    pattern5 = "-* show inventory --*"
+    pattern6 = "--* show region --*"
+ 
 
     text = file_object.read()
     match = re.search(pattern1, text)
