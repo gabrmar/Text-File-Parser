@@ -13,25 +13,21 @@ def filter_text(file_object):
  
 
     text = file_object.read()
-    #matches = []
-    match = re.search(pattern1, text)
-    match2 = re.search(pattern2, text)
-    match3 = re.search(pattern3, text)
-    match4 = re.search(pattern4, text)
-    match5 = re.search(pattern5, text)
-    match6 = re.search(pattern6, text)
-    start1 = match.start()
-    start2 = match2.start()
-    start3 = match3.start()
-    start4 = match4.start()
-    start5 = match5.start()
-    start6 = match6.start() 
+    matches = []
+    borders = []
+    substrings = []
+    k = 0
 
-    substring = text[start1:start2-1]
-    substring2 = text[start3:start4-1]
-    substring3 = text[start5:start6-1]
+    for i in patterns:
+        matches.append(re.search(i,text))
+    for j in matches:
+        borders.append(j.start())
 
-    return (substring,substring2,substring3)
+    while k <= len(borders)/2 + 1: #colocar notas al respecto de como funciona este ciclo
+        substrings.append(text[borders[k]:borders[k+1]-1])
+        k=k+2
+        
+    return substrings
 
 def writer(snippet_list,output_file):
     for i in snippet_list:
@@ -44,10 +40,10 @@ parsed = open("Parsed Show Tech.txt","w")
 
 #Phase 2: Getting substring using regex
 result = filter_text(showtech)
-listed = list(result)
+#listed = list(result)
 
 #Phase 3: Save the substring into text file
-writer(listed,parsed)
+writer(result,parsed)
 
 #Phase 4: Close object files to clean system buffer 
 showtech.close()
