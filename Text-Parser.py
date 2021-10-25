@@ -2,6 +2,8 @@ import re
 
 def filter_text(file_object):
 
+    pattern_list = ["--* show version --*","--* show running-config --*","--* show platform --*",
+                   "--* show romvar --*","-* show inventory --*","--* show region --*"]
     pattern1 =  "--* show version --*"
     pattern2 = "--* show running-config --*"
     pattern3 = "--* show platform --*"
