@@ -2,7 +2,7 @@ import re
 
 def filter_text(file_object):
 
-    pattern_list = ["--* show version --*","--* show running-config --*","--* show platform --*",
+    patterns = ["--* show version --*","--* show running-config --*","--* show platform --*",
                    "--* show romvar --*","-* show inventory --*","--* show region --*"]
     pattern1 =  "--* show version --*"
     pattern2 = "--* show running-config --*"
@@ -13,6 +13,7 @@ def filter_text(file_object):
  
 
     text = file_object.read()
+    #matches = []
     match = re.search(pattern1, text)
     match2 = re.search(pattern2, text)
     match3 = re.search(pattern3, text)
@@ -33,11 +34,9 @@ def filter_text(file_object):
     return (substring,substring2,substring3)
 
 def writer(snippet_list,output_file):
-    i=0
-    while i < len(snippet_list):
-        output_file.write(snippet_list[i])
+    for i in snippet_list:
+        output_file.write(i)
         output_file.write("\n\n")
-        i=i+1
 
 #Phase 1: Opening file 
 showtech = open("Archivos de Prueba/ANB-RTR-WAN-1 sh tech.txt","r")
