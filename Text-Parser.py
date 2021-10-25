@@ -4,14 +4,6 @@ def filter_text(file_object):
 
     patterns = ["--* show version --*","--* show running-config --*","--* show platform --*",
                    "--* show romvar --*","-* show inventory --*","--* show region --*"]
-    pattern1 =  "--* show version --*"
-    pattern2 = "--* show running-config --*"
-    pattern3 = "--* show platform --*"
-    pattern4 = "--* show romvar --*"
-    pattern5 = "-* show inventory --*"
-    pattern6 = "--* show region --*"
- 
-
     text = file_object.read()
     matches = []
     borders = []
