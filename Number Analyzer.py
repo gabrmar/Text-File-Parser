@@ -1,11 +1,14 @@
 
 def seekVersion(text):
+    global patterns
     pass
 
 def seekROMMON(text):
+    global patterns
     pass
 
 def SeekPID(text):
+    global patterns
     pass
 
 patterns = []
