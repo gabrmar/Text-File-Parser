@@ -6,4 +6,5 @@ text = parsed.read()
 #Fase 2: Selección de los valores numéricos que son de interes
 version = tparser.searchVersion(text)
 ROMMON = tparser.searchROMMON(text)
+#Fase 3: Presentación de los números obtenidos
 print("Version:{a}".format(a=version) + "\n" + "ROMMON:{b}".format(b=ROMMON))
