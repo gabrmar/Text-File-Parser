@@ -12,3 +12,5 @@ text = parsed.read()
 #Fase 2: Selección de los valores numéricos que son de interes
 version = tparser.searchVersion(text)
 print(version)
+ROMMON = tparser.searchROMMON(text)
+print(ROMMON)

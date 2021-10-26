@@ -38,9 +38,19 @@ def searchVersion(text):
     version = matches[0].group()
     match2 = re.search("[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}",version)
     number = match2.group()
+    
     return number
 
-def searchROMMON():
-    patterns = ["R0        [0-9]*            [0-9][0-9].[0-9]\([0-9]{1,2}r\)"]
+def searchROMMON(text):
+    patterns = ["R0        [0-9]*            [0-9]{1,2}.[0-9]\([0-9]{1,2}r\)"]
+    matches = []
 
+    for i in patterns:
+        matches.append(re.search(i,text))
+    
+    firmware = matches[0].group()
+    match2 = re.search("[0-9]{1,2}.[0-9]\([0-9]{1,2}r\)",firmware)
+    number = match2.group()
+
+    return number
 
