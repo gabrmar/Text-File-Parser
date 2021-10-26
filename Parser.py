@@ -26,7 +26,22 @@ def writer(snippet_list,output_file):
         output_file.write(i)
         output_file.write("\n\n")
 
-def something():
-    test = [ "Version [0-9][0-9].[0-9][0-9].[0-9][0-9]",
-    "R0        [0-9]*            [0-9][0-9].[0-9]\([0-9]{1,2}r\)"]
-    pass
+def searchVersion(text):
+
+    patterns = [ "Version [0-9][0-9].[0-9][0-9].[0-9][0-9]"]
+
+    matches = []
+  
+    for i in patterns:
+        matches.append(re.search(i,text))
+
+    version = matches[0]
+
+    return version
+
+    #finditer
+
+def searchROMMON():
+    patterns = ["R0        [0-9]*            [0-9][0-9].[0-9]\([0-9]{1,2}r\)"]
+
+
