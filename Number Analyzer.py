@@ -1,4 +1,4 @@
-import Parser
+import parser
 
 def seekVersion(text):
     global patterns
