@@ -22,6 +22,7 @@ def filter_text(file_object):
     return substrings
 
 def writer(snippet_list,output_file):
+    
     for i in snippet_list:
         output_file.write(i)
         output_file.write("\n\n")
@@ -29,17 +30,15 @@ def writer(snippet_list,output_file):
 def searchVersion(text):
 
     patterns = [ "Version [0-9][0-9].[0-9][0-9].[0-9][0-9]"]
-
     matches = []
   
     for i in patterns:
         matches.append(re.search(i,text))
 
     version = matches[0]
+    version = version.group()
 
     return version
-
-    #finditer
 
 def searchROMMON():
     patterns = ["R0        [0-9]*            [0-9][0-9].[0-9]\([0-9]{1,2}r\)"]

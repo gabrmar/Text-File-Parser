@@ -10,5 +10,5 @@ def seekROMMON(text):
 parsed = open("Parsed Show Tech.txt","r")
 text = parsed.read()
 #Fase 2: Selección de los valores numéricos que son de interes
-version = parser.searchVersion(text)
+version = searchVersion(text)
 print(version)
