@@ -1,11 +1,5 @@
 import tparser
 
-
-
-def seekROMMON(text):
-    pass
-
-
 #Fase 1: Abrir archivo de interes
 parsed = open("Parsed Show Tech.txt","r")
 text = parsed.read()
