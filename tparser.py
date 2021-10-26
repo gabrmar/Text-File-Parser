@@ -29,16 +29,16 @@ def writer(snippet_list,output_file):
 
 def searchVersion(text):
 
-    patterns = [ "Version [0-9][0-9].[0-9][0-9].[0-9][0-9]"]
+    patterns = [ "Version [0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}"]
     matches = []
   
     for i in patterns:
         matches.append(re.search(i,text))
 
-    version = matches[0]
-    version = version.group()
-
-    return version
+    version = matches[0].group()
+    match2 = re.search("[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}",version)
+    number = match2.group()
+    return number
 
 def searchROMMON():
     patterns = ["R0        [0-9]*            [0-9][0-9].[0-9]\([0-9]{1,2}r\)"]
