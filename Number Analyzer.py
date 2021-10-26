@@ -1,3 +1,4 @@
+import Text-Parser
 
 def seekVersion(text):
     global patterns
@@ -16,3 +17,4 @@ patterns = []
 #Fase 1: Abrir archivo de interes
 parsed = open("Parsed Show Tech.txt","r")
 #Fase 2: Selección de los valores numéricos que son de interes
+Text-Parser.writer(30)
