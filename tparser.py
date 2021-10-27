@@ -60,9 +60,8 @@ def searchROMMON(text):
     
     firmware = matches[0].group()
     notes = ROMMON_Validator(firmware)
-    print(notes)
     match2 = re.search("[0-9]{1,2}.[0-9]\([0-9]{1,2}r\)",firmware)
     number = match2.group()
 
-    return number
+    return (number,notes)
 
