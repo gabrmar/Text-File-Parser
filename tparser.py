@@ -27,6 +27,13 @@ def writer(snippet_list,output_file):
         output_file.write(i)
         output_file.write("\n\n")
 
+def versionChecker(version):
+    pass
+
+def ROMMON_Validator(ROMMON):
+    #Open a file with the suggest release table
+    pass 
+
 def searchVersion(text):
 
     patterns = [ "Version [0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}"]
@@ -36,6 +43,7 @@ def searchVersion(text):
         matches.append(re.search(i,text))
 
     version = matches[0].group()
+    notes = versionChecker(version)
     match2 = re.search("[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}",version)
     number = match2.group()
     
@@ -49,13 +57,9 @@ def searchROMMON(text):
         matches.append(re.search(i,text))
     
     firmware = matches[0].group()
+    notes = ROMMON_Validator(firmware)
     match2 = re.search("[0-9]{1,2}.[0-9]\([0-9]{1,2}r\)",firmware)
     number = match2.group()
 
     return number
 
-def versionChecker():
-    pass
-
-def findProcessor():
-    pass 
