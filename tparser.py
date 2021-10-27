@@ -31,8 +31,10 @@ def versionChecker(version):
     pass
 
 def ROMMON_Validator(ROMMON):
-    #Open a file with the suggest release table
-    pass 
+    suggestion = open("Suggested ROMMON.txt","r")
+    version = re.search("[0-9]{1,2}.[0-9]\([0-9]{1,2}r\)",suggestion.read())
+    version_text = version.group()
+    return version_text
 
 def searchVersion(text):
 
@@ -58,6 +60,7 @@ def searchROMMON(text):
     
     firmware = matches[0].group()
     notes = ROMMON_Validator(firmware)
+    print(notes)
     match2 = re.search("[0-9]{1,2}.[0-9]\([0-9]{1,2}r\)",firmware)
     number = match2.group()
 
