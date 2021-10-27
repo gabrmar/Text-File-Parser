@@ -54,3 +54,8 @@ def searchROMMON(text):
 
     return number
 
+def versionChecker():
+    pass
+
+def findProcessor():
+    pass 
