@@ -32,7 +32,8 @@ def versionChecker(version):
 
 def ROMMON_Validator(ROMMON):
     suggestion = open("Suggested ROMMON.txt","r")
-    version = re.search("[0-9]{1,2}.[0-9]\([0-9]{1,2}r\)",suggestion.read())
+    file = suggestion.read()
+    version = re.search("[0-9]{1,2}.[0-9]{1,2}\([0-9]{1,2}r\)",file)
     version_text = version.group()
     return version_text
 
