@@ -1,6 +1,8 @@
 import re
 
 
+#------------------------------Bloque Principal--------------------------------------------------------
+
 
 def filter_text(file_object): #Función de filtrado del show tech 
 
@@ -33,10 +35,8 @@ def writer(snippet_list,output_file): #Función de escritura de secciones filtra
         output_file.write(i)
         output_file.write("\n\n")
 
-def versionChecker(version): #Pendiente de definir
-    pass
 
-#---------------------ROMMON Routines------------------------------------------------------#
+#------------------------------Rutinas de ROMMON--------------------------------------------------------
 
 def ROM2numbers(text): #Esta función extrae los números que componen la versión de ROMMON 
 
@@ -98,7 +98,10 @@ def searchROMMON(text): #Función de extracción de la versión de ROMMON
 
     return (number,notes)
 
-#---------------------IOS/IOS-XE Routines------------------------------------------------------#
+#------------------------------Rutinas de IOS/IOS-XE--------------------------------------------------------
+
+def versionChecker(version): #Pendiente de definir
+    pass
 
 
 def searchVersion(text): #Función de extracción de la versión de IOS O IOS-XE
