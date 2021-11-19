@@ -64,7 +64,7 @@ def ROM2numbers(text): #Esta función extrae los números que componen la versi�
 
     return numbers
 
-def ROMMON_Validator(ROMMON): #Función central para el manejo de la versión de ROMMON
+def ROMMON_Validator(ROMMON):
 
     """Esta rutina es el cuerpo principal donde se encontrarán las sub-rutinas relacionados con 
     el análisis de la versión de ROMMON"""
@@ -82,6 +82,7 @@ def compareROMMON(suggestedROM,currentROM): #Función de comparación  de versio
     pass
 
 def searchROMMON(text): #Función de extracción de la versión de ROMMON 
+    #  Función central para el manejo de la versión de ROMMON 
     patterns = ["R0        [0-9]*            [0-9]{1,2}.[0-9]\([0-9]{1,2}r\)"]
     matches = []
 
@@ -105,10 +106,11 @@ def versionChecker(version): #Pendiente de definir
 
 
 def searchVersion(text): #Función de extracción de la versión de IOS O IOS-XE
-
+   
     patterns = [ "Version [0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}"]
     matches = []
-  
+
+
     for i in patterns:
         matches.append(re.search(i,text))
 
