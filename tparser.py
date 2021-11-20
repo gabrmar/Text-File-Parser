@@ -93,11 +93,9 @@ def searchROMMON(text): #Función de extracción de la versión de ROMMON
     match2 = re.search("[0-9]{1,2}.[0-9]\([0-9]{1,2}r\)",firmware) #Removiendo de la línea lo que no tiene
     #que ver con la versión de ROMMON
     number = match2.group()
-    suggested, ROMMON, notes = ROMMON_Validator(number)
-    print(suggested)
-    print(ROMMON)
+    #suggested, ROMMON, notes = ROMMON_Validator(number)
 
-    return (number,notes)
+    return number
 
 #------------------------------Rutinas de IOS/IOS-XE--------------------------------------------------------
 
