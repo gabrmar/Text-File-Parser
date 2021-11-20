@@ -13,16 +13,18 @@ result = tparser.filter_text(showtech) #It returs a list with the substrings we 
 tparser.writer(result,parsed)
 
 #New phase. Analysis
-#parsed.close() #Closing the file is necesary to open the file with the changes. This requires more
+parsed.close() #Closing the file is necesary to open the file with the changes. This requires more
 #Research
-#parsed = open("Parsed Show Tech.txt","r+")
+parsed = open("Parsed Show Tech.txt","r+")
 text = parsed.read()
 version = tparser.searchVersion(text)
+firmware = tparser.searchROMMON(text)
 
 
 #Phase 4: Close object files to clean system buffer 
 showtech.close()
 parsed.close()
 print("La versión de IOS-XE del equipo es",version)
+print("La versión de ROMMON del equipo es",firmware)
 print("Rutina finalizada con exito")
  
