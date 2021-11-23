@@ -19,6 +19,7 @@ parsed = open("Parsed Show Tech.txt","r+")
 text = parsed.read()
 version = tparser.searchVersion(text)
 firmware = tparser.searchROMMON(text)
+suggested_firm, validation = tparser.ROMMON_Validator(firmware)
 
 
 #Phase 4: Close object files to clean system buffer 
@@ -26,5 +27,7 @@ showtech.close()
 parsed.close()
 print("La versión de IOS-XE del equipo es",version)
 print("La versión de ROMMON del equipo es",firmware)
+print("La versión recomendada de ROMMMON para es equipo es",suggested_firm)
+print("prueba",validation)
 print("Rutina finalizada con exito")
  
