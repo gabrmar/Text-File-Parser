@@ -118,9 +118,18 @@ def searchROMMON(text): #Función de extracción de la versión de ROMMON
 
 #------------------------------Rutinas de IOS/IOS-XE--------------------------------------------------------
 
-def versionChecker(version): #Pendiente de definir
-    pass
+def IOS2numbers(text_version):#Extracción de números que componen la versión de IOS/IOS-XE
 
+    """El objetivo de esta función es partir el pedazo de la cadena de caracteres que tiene le versión
+    de IOS/IOS-XE en diferntes sub-cadenas para cada uno de las cifras de la versión (normalmente 3 cifras).
+    Cada cifra es almacenada en una lista serpada"""
+
+    aux = text_version.split(".") # Removindo los puntos de la cadena
+    numbers = []
+    #formatear la lista para que sea una sola lista y no una lista de listas
+    for i in aux:
+        numbers.append(int(i))
+    return numbers
 
 def searchVersion(text): #Función de extracción de la versión de IOS O IOS-XE
    
@@ -132,7 +141,7 @@ def searchVersion(text): #Función de extracción de la versión de IOS O IOS-XE
         matches.append(re.search(i,text))
 
     version = matches[0].group()
-    notes = versionChecker(version)
+    #notes = versionChecker(version)
     match2 = re.search("[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}",version)
     number = match2.group()
     
