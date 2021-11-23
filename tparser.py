@@ -74,8 +74,12 @@ def compareROMMON(suggestedROM,currentROM): #Función de comparación  de versio
             diff = suggestedROM[i] - currentROM[i]
             comparator.append(diff)
             i=i+1
-        
-        return None
+        for i in comparator:
+            if i > 0:
+                message = "Versión actual de ROMMON desactualizada. Se necesita actualización."
+                break
+
+        return message
     else:
         print("Las dimensiones de los valores de ROMMON no coinciden. Revisar los valores entregados")
         return None
