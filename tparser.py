@@ -66,8 +66,6 @@ def ROM2numbers(text): #Esta función extrae los números que componen la versi�
     return numbers
 
 def compareROMMON(suggestedROM,currentROM): #Función de comparación  de versiones de ROMMON
-    print(suggestedROM)
-    print(currentROM)
     if len(suggestedROM) == len(currentROM):
         print("Valores de ROMMON aceptados...Iniciando comparación.")
         i=0
@@ -75,7 +73,9 @@ def compareROMMON(suggestedROM,currentROM): #Función de comparación  de versio
         while i < len(suggestedROM):
             diff = suggestedROM[i] - currentROM[i]
             comparator.append(diff)
-        return comparator
+            i=i+1
+        
+        return None
     else:
         print("Las dimensiones de los valores de ROMMON no coinciden. Revisar los valores entregados")
         return None
