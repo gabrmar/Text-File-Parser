@@ -62,7 +62,7 @@ def ROM2numbers(text): #Esta función extrae los números que componen la versi�
             num2.pop(index)
 
     #formatear la lista para que sea una sola lista y no una lista de listas
-    numbers = [num[0],num2[0],num3[0]]
+    numbers = [int(num[0]),int(num2[0]),int(num3[0])]
     return numbers
 
 def compareROMMON(suggestedROM,currentROM): #Función de comparación  de versiones de ROMMON
@@ -91,9 +91,9 @@ def ROMMON_Validator(ROMMON):
     version_text = version.group()
     suggested_numbers = ROM2numbers(version_text) #Obtener los números que componen el ROMMON
     ROMMON_numbers = ROM2numbers(ROMMON) #Lo mismo aquí
-    #validation = compareROMMON(suggested_numbers,ROMMON_numbers)
+    validation = compareROMMON(suggested_numbers,ROMMON_numbers)
 
-    return (version_text,0)
+    return (version_text,validation)
 
 
 def searchROMMON(text): #Función de extracción de la versión de ROMMON 
