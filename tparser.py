@@ -77,7 +77,7 @@ def compareROMMON(suggestedROM,currentROM): #Función de comparación  de versio
             i=i+1
         for i in comparator:
             if i > 0:
-                message = "Version actual de ROMMON desactualizada. Se necesita actualización."
+                message = "Version actual de ROMMON desactualizada."
                 break
         return message
     else:
@@ -118,6 +118,28 @@ def searchROMMON(text): #Función de extracción de la versión de ROMMON
 
 #------------------------------Rutinas de IOS/IOS-XE--------------------------------------------------------
 
+def compareIOS(suggestedIOS,currentIOS): #Función de comparación  de versiones de ROMMON
+    if len(suggestedIOS) == len(currentIOS):
+        print("Valores de IOS aceptados...Iniciando comparación")
+        i=0
+        comparator = []
+        message = ""
+        while i < len(suggestedIOS):
+            diff = suggestedIOS[i] - currentIOS[i]
+            comparator.append(diff)
+            i=i+1
+        for i in comparator:
+            if i > 0:
+                message = "Version actual de IOS/IOS-XE desactualizada."
+                break
+        return message
+    else:
+        print("Las dimensiones de los valores de IOS/IOS-XE no coinciden. Por favor revisar los valores entregados")
+        return None
+
+
+    
+
 def IOS2numbers(text_version):#Extracción de números que componen la versión de IOS/IOS-XE
 
     """El objetivo de esta función es partir el pedazo de la cadena de caracteres que tiene le versión
@@ -140,7 +162,6 @@ def searchVersion(text): #Función de extracción de la versión de IOS O IOS-XE
         matches.append(re.search(i,text))
 
     version = matches[0].group()
-    #notes = versionChecker(version)
     match2 = re.search("[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}",version)
     number = match2.group()
     
@@ -157,5 +178,6 @@ def IOSvalidation(IOS):
     version_text = version.group()
     suggested_numbers = IOS2numbers(version_text)
     IOS_numbers = IOS2numbers(IOS)
+    validation = compareIOS(suggested_numbers,IOS_numbers)
 
-    return IOS_numbers
+    return (IOS_numbers,validation)

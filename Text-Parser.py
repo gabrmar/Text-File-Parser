@@ -18,13 +18,14 @@ parsed.close() #Closing the file is necesary to open the file with the changes. 
 parsed = open("Parsed Show Tech.txt","r+")
 text = parsed.read()
 version = tparser.searchVersion(text)
-numbers = tparser.IOSvalidation(version) 
+numbers, validation_1 = tparser.IOSvalidation(version) 
 firmware = tparser.searchROMMON(text)
-suggested_firm,validation = tparser.ROMMON_Validator(firmware)
+suggested_firm,validation_2 = tparser.ROMMON_Validator(firmware)
 parsed.write("\n\n")  #No se puede usar tparser.writer() porque fue diseñado para una lista de sub-cadenas
 #de caracteres
-parsed.write(validation)
-
+parsed.write(validation_1)
+parsed.write("\n\n")
+parsed.write(validation_2)
 
 #Phase 4: Close object files to clean system buffer 
 showtech.close()
@@ -32,6 +33,5 @@ parsed.close()
 print("La versión de IOS-XE del equipo es",version) 
 print("La versión de ROMMON del equipo es",firmware)
 print("La versión recomendada de ROMMMON para es equipo es",suggested_firm)
-print("prueba",numbers)
 print("Rutina finalizada con exito")
  
