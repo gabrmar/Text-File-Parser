@@ -136,7 +136,6 @@ def searchVersion(text): #Función de extracción de la versión de IOS O IOS-XE
     patterns = [ "Version [0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}"]
     matches = []
 
-
     for i in patterns:
         matches.append(re.search(i,text))
 
@@ -146,3 +145,17 @@ def searchVersion(text): #Función de extracción de la versión de IOS O IOS-XE
     number = match2.group()
     
     return number
+
+def IOSvalidation(IOS):
+    
+    """Cuerpo principal de rutinas de IOS/IOS-XE"""
+
+    suggestion = open("Suggested IOS or IOS-XE.txt","r") 
+    file = suggestion.read()
+
+    version = re.search(" [0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}",file)
+    version_text = version.group()
+    suggested_numbers = IOS2numbers(version_text)
+    IOS_numbers = IOS2numbers(IOS)
+
+    return IOS_numbers
