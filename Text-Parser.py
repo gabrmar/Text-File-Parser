@@ -20,6 +20,9 @@ text = parsed.read()
 version = tparser.searchVersion(text)
 firmware = tparser.searchROMMON(text)
 suggested_firm,validation = tparser.ROMMON_Validator(firmware)
+parsed.write("\n\n")  #No se puede usar tparser.writer() porque fue diseñado para una lista de sub-cadenas
+#de caracteres
+parsed.write(validation)
 
 
 #Phase 4: Close object files to clean system buffer 
