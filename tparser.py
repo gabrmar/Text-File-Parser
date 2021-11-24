@@ -38,6 +38,26 @@ def writer(snippet_list,output_file): #Función de escritura de secciones filtra
 
 #------------------------------Rutinas de ROMMON--------------------------------------------------------
 
+def compareROMMON(suggestedROM,currentROM): #Función de comparación  de versiones de ROMMON
+    if len(suggestedROM) == len(currentROM):
+        print("Valores de ROMMON aceptados...Iniciando comparación.")
+        i=0
+        comparator = []
+        message = ""
+        while i < len(suggestedROM):
+            diff = suggestedROM[i] - currentROM[i]
+            comparator.append(diff)
+            i=i+1
+        for i in comparator:
+            if i > 0:
+                message = "Version actual de ROMMON desactualizada."
+                break
+        return message
+    else:
+        print("Las dimensiones de los valores de ROMMON no coinciden. Revisar los valores entregados")
+        return None
+
+
 def ROM2numbers(text): #Esta función extrae los números que componen la versión de ROMMON 
 
     """El objetivo de esta función es partir el pedazo de la cadena de caracteres que tiene le versión
@@ -65,24 +85,6 @@ def ROM2numbers(text): #Esta función extrae los números que componen la versi�
     numbers = [int(num[0]),int(num2[0]),int(num3[0])]
     return numbers
 
-def compareROMMON(suggestedROM,currentROM): #Función de comparación  de versiones de ROMMON
-    if len(suggestedROM) == len(currentROM):
-        print("Valores de ROMMON aceptados...Iniciando comparación.")
-        i=0
-        comparator = []
-        message = ""
-        while i < len(suggestedROM):
-            diff = suggestedROM[i] - currentROM[i]
-            comparator.append(diff)
-            i=i+1
-        for i in comparator:
-            if i > 0:
-                message = "Version actual de ROMMON desactualizada."
-                break
-        return message
-    else:
-        print("Las dimensiones de los valores de ROMMON no coinciden. Revisar los valores entregados")
-        return None
 
 def ROMMON_Validator(ROMMON):
 
