@@ -140,8 +140,6 @@ def compareIOS(suggestedIOS,currentIOS): #Función de comparación  de versiones
         return None
 
 
-    
-
 def IOS2numbers(text_version):#Extracción de números que componen la versión de IOS/IOS-XE
 
     """El objetivo de esta función es partir el pedazo de la cadena de caracteres que tiene le versión
@@ -155,19 +153,6 @@ def IOS2numbers(text_version):#Extracción de números que componen la versión 
         numbers.append(int(i))
     return numbers
 
-def searchVersion(text): #Función de extracción de la versión de IOS O IOS-XE
-   
-    patterns = [ "Version [0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}"]
-    matches = []
-
-    for i in patterns:
-        matches.append(re.search(i,text))
-
-    version = matches[0].group()
-    match2 = re.search("[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}",version)
-    number = match2.group()
-    
-    return number
 
 def IOSvalidation(IOS):
     
@@ -183,3 +168,18 @@ def IOSvalidation(IOS):
     validation = compareIOS(suggested_numbers,IOS_numbers)
 
     return (IOS_numbers,validation)
+
+
+def searchVersion(text): #Función de extracción de la versión de IOS O IOS-XE
+   
+    patterns = [ "Version [0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}"]
+    matches = []
+
+    for i in patterns:
+        matches.append(re.search(i,text))
+
+    version = matches[0].group()
+    match2 = re.search("[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}",version)
+    number = match2.group()
+    
+    return number
