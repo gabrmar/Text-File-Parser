@@ -1,4 +1,3 @@
-from os import read
 import tparser
 
 #Phase 1: Opening file 
