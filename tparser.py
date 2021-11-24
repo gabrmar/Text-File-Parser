@@ -86,7 +86,7 @@ def ROM2numbers(text): #Esta función extrae los números que componen la versi�
     return numbers
 
 
-def ROMMON_Validator(ROMMON):
+def ROMMONvalidation(ROMMON):
 
     """Esta rutina es el cuerpo principal donde se encontrarán las sub-rutinas relacionados con 
     el análisis de la versión de ROMMON"""

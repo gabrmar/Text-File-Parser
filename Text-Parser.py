@@ -20,7 +20,7 @@ text = parsed.read()
 version = tparser.searchVersion(text)
 numbers, validation_1 = tparser.IOSvalidation(version) 
 firmware = tparser.searchROMMON(text)
-suggested_firm,validation_2 = tparser.ROMMON_Validator(firmware)
+suggested_firm,validation_2 = tparser.ROMMONvalidation(firmware)
 parsed.write("\n\n")  #No se puede usar tparser.writer() porque fue diseñado para una lista de sub-cadenas
 #de caracteres
 parsed.write(validation_1)
