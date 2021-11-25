@@ -22,6 +22,8 @@ firmware = tparser.searchROMMON(text)
 suggested_firm,validation_2 = tparser.ROMMONvalidation(firmware)
 parsed.write("\n\n")  #No se puede usar tparser.writer() porque fue diseñado para una lista de sub-cadenas
 #de caracteres
+parsed.write("---------- Observaciones ----------")
+parsed.write("\n\n")
 parsed.write(validation_1)
 parsed.write("\n\n")
 parsed.write(validation_2)
